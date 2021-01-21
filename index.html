@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html id="html">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <title>Proxmarkbuilds.org</title>
+	<link rel="shortcut icon" href="https://aws.amazon.com/favicon.ico">
+    <style type="text/css">
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+            margin: 0;
+            padding: 0;
+        }
+        * {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+        :before, :after {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+        img, object, embed {max-width: 100%; height: auto;}
+        object, embed {height: 100%;}
+        img { margin: 1.25% 0; -ms-interpolation-mode: bicubic; }
+        html {
+            background-color: #F0F1F3;
+            padding: 2%;
+        }
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            color: #242424;
+            max-width: 800px;
+            margin: 5% auto;
+           
+        }
+        body::after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+        header {
+            margin-bottom: 8%;
+        }
+        footer {
+            text-align: center;
+        }
+        h1, h2, h3, h4, h5, h1 a {
+            color: #263A48;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        h1, h2 {
+            font-size: 36px;
+            padding-bottom: 0.3em;
+            margin-bottom: 0.4em;
+            border-bottom: 1px solid #eee
+        }
+        h2 {
+            font-size: 22px;
+            padding-bottom: 0.6em;
+            margin-bottom: 0.6em;
+            margin-top: 2.5em;
+        }
+        h3 {
+            font-size: 18px;
+            margin-bottom: 0.3em;
+        }
+        h1 small a {
+            color: #98999C;
+            font-size: 15px;
+            font-weight: normal;
+            float: right;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+        section {
+            background: #fff;
+            margin-bottom: 1%;
+            position: relative;
+            padding: 6% 8%;
+        }
+        blockquote {
+            border-left: 3px solid #d54e21;
+            font-size: 16px;
+            padding: 0 0 0 20px;
+            color: #d54e21;
+        }
+        blockquote a {
+            color: #d54e21;
+            font-weight: 500;
+        }
+        blockquote code {
+            color: #d54e21;
+        }
+        code, cite {
+            background-color: #F0F2F4;
+            border-radius: 3px;
+            color: #000;
+            font: inherit;
+            padding: 2px 7px;
+            white-space: nowrap;
+        }
+        pre {
+			background-color: #F0F2F4;
+			clear: both;
+			border-radius: 4px;
+			display: block;
+			font-size: 14px;
+			overflow: auto;
+			padding: 20px;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
+		pre + img {
+			margin-top: 2.4em;
+		}
+        a {
+            color: #1e8cbe;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #d54e21;
+        }
+        ul {
+            list-style: none;
+        }
+        ol {
+            list-style: number;
+        }
+        ol li {
+            color: #98999C;
+            margin-bottom: 5px;
+        }
+        ol li:last-child {
+            margin-bottom: 0;
+        }
+        p, ul, ol, blockquote  {
+            margin-bottom: 4%;
+        }
+        ul ul {
+            padding-top: 0;
+            margin-bottom: 0;
+            margin-left: 4%;
+        }
+        ul ul li:before {
+            content: '-';
+            display: inline-block;
+            padding-right: 2%;
+        }
+
+        ul.col-2 {
+            color: #98999C;
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
+            -webkit-column-gap: 20px;
+            -moz-column-gap: 20px;
+            column-gap: 20px;
+        }
+
+        @media screen and (min-width: 500px) {
+            ul.col-2 {
+                -webkit-column-count: 3;
+                -moz-column-count: 3;
+                column-count: 3;
+                -webkit-column-gap: 20px;
+                -moz-column-gap: 20px;
+                column-gap: 20px;
+            }
+        }
+        nav {
+            background: #F0F1F3;
+            min-width: 215px;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+        nav:first-of-type a {
+            color: #d54e21;
+            border-radius: 0;
+        }
+        nav:first-of-type a:hover {
+            color: #d54e21;
+        }
+        nav:first-of-type a:before {
+            background-color: #d54e21;
+        }
+        nav.affix {
+            position: fixed;
+            top: 20px;
+        }
+        nav.affix-bottom {
+            position: absolute;
+        }
+        nav a {
+            border-radius: 3px;
+            font-size: 15px;
+            display: block;
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+            text-decoration: none; 
+            padding: 10px 12px;
+            width: 100%;
+            padding-right: 3px;
+            border-bottom: 2px solid #fff;
+        }
+        nav a:before {
+            content: '';
+            width: 4px;
+            display: block;
+            left: 0;
+            position: absolute;
+            height: 100%;
+            display: none;
+            background: #1e8cbe;
+            top: 0;
+        }
+        nav a:hover {
+            background-color: #E6E8EA;
+            color: #1e8cbe;
+            text-decoration: underline;
+        }   
+        nav a:hover:before {
+            display: block;
+        }
+        nav a:last-of-type {
+            border-bottom: none;
+        }
+        .gist {
+            margin-top: 5.1%;
+            margin-bottom: 5%;
+        }
+        @media screen and (max-width: 1050px) {
+            body {
+                margin: 0 auto;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            header span {
+                display: none;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+        }   
+        @media screen and (max-width: 514px) {
+            p, ul, ol, blockquote  {
+                margin-bottom: 8%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="Menu">
+        <header>
+            <h1>Windows binaries for the Proxmark3</h1>
+            <p>These builds are compiled with the newest version of <a href="https://github.com/Gator96100/ProxSpace">ProxSpace</a> and are always up to date. Here I will post the latest compiled Windows versions from the official Proxmark repository and some forks. If you want me to add a fork please <a href="#Contact">contact me</a>.</p>
+			<p>Having problems? Please look at the <a href="#issues">Known issues</a> first.</p>
+        </header>
+        <nav>
+            <a href="latest/official">Latest official build</a>
+            <a href="latest/rdv4">Latest build for Proxmark3 RDV4</a>
+            <a href="latest/rdv4_bt">Latest build for Proxmark3 RDV4 with blueshark addon</a>
+            <a href="latest/rrg_other">Latest RRG / Iceman generic build for Proxmark3 devices (non RDV4), for Proxmark3 Easy, RDV1, RDV2, RDV3, etc etc</a>
+            <a href="fileviewer.html">All builds</a>
+        </nav>
+		<p><blockquote><b>Warning Proxmark3 Easy users: make sure your Proxmark does have 512KB of flash otherwise these builds might not work!</b></blockquote></p>
+        <nav>
+            <a href="#gettingstarted">Getting Started</a>
+
+            <a href="#differences">Choosing a build</a>
+
+            <a href="#faq">Frequently Asked Questions (FAQ)</a>
+
+            <a href="#issues">Known issues</a>
+
+            <a href="#report">Report an error</a>
+
+            <a href="#contact">Contact</a>
+        </nav>
+    </section>
+
+    <section id="gettingstarted">
+
+        <h1><a href="#gettingstarted">Getting Started</a><small><a href="#html">Back to Top</a></small></h1>
+
+        <p>This is only a short instruction to getting your Proxmark3 up and running. There are many resources for the Proxmark, if you want to know more about the Proxmark here is a short list:</p>
+		<ul>
+            <li><a href="https://github.com/Proxmark/proxmark3/wiki">Proxmark Wiki</a></li>
+			<li><a href="https://github.com/RfidResearchGroup/proxmark3">RRG / Iceman repo</a></li>
+			<li><a href="http://proxmark.org/forum/index.php">Proxmark forum</a></li>
+			<li><a href="https://discord.gg/rm8pVNer7c">RFID HACKING BY ICEMAN Discord server</a></li>
+        </ul>
+
+		
+		<h2>Find out what Proxmark you have</h2>
+		<p>There many different hardware variations of the Proxmark3 and some builds are only working for a specific hardware variation. For a more detailed collection of the different hardware variations, I recommend to take a look at <a href="https://proxmark.com/#g-features">proxmark.com</a></p>
+		<p><b>Original:</b> This is the original Proxmark3, with the greed PCB. If you bought a Proxmark3 within the last years it is highly unlikely, that you bought an original Proxmark3.</p>
+		<p><b>RDV2:</b> This version was designed by Elechouse and usually has a blue PCB. The Antennas on the RDV2 are extern and are connected with coax cables.</p>
+		<p><b>RDV3/Proxmark Easy:</b> The RDV3, mostly referred as Proxmark Easy was designed by Elechouse as a lower cost variant. Many different clones with hardware differences of the Proxmark Easy exists. Most Proxmark3 Easy devices have a lowered flash size, that makes them unusable for some builds. Some Proxmark3 Easy devices have 512KB flash memory available and are able to run those builds. To check how much memory your Proxmark3 has available, check the microcontroller. If it is an AT91SAM7S256 you have only 256KB and if it is an AT91SAM7S512 you have 512KB of memory available.</p> 
+		<p><b>RDV4:</b> This is the latest version of the Proxmark3 and has many additional features that the previous versions do not have. That is why there are builds that are specific for the RDV4. The RDV4 has support for a Bluetooth module (blueshark addon). In order to use this module, it has to be enabled during compilation, that is why there are builds for it.</p>
+		
+        <h2>Download the latest build</h2>
+        <p>For more information about the <a href="#differences">Firmware differences</a> look below. Download the build you wish to use. After downloading you need to extract the 7zip archive. For extracting choose a folder without spaces.</p>
+		
+		<h2>Find your COM port</h2>
+        <p>On Windows version prior to Windows 10 you have to manually install the driver, it is included in the .7z file. Open the Device Manager > navigate to Other devices > right click on proxmark3 > click Update Driver Software > Browse my computer for driver software > click on the Browse button > navigate to your Windows Driver folder > when prompted click on Install this driver software anyway. Your Proxmark3 should now appear.</p>
+		<p>Open the Device Manager on your PC and go to the Ports section. You should see COMX, where X is the port number. Make sure this port is your Proxmark3 by unplugging your Proxmark3 from your PC, now the port should be gone.</p>
+		
+		<h2>Updating your Proxmark3</h2>
+        <p>For the <b>official</b> build you need to adjust the COM port in <cite>Go.bat</cite>, <cite>FLASH - All.bat</cite>, <cite>FLASH - Bootrom.bat</cite> and <cite>FLASH - fullimage.bat</cite>. For <b>all other</b> builds there is no need to edit files, only if you need to force a COM port, e.g.: you are using two Proxmark3 devices. This can be done in <cite> pm3*.bat</cite> files.</p>	
+		<p>If you do not like to change the COM port in the <cite>.bat</cite> files, you can force the proxmark3 to be on <cite>com5</cite>. This is done by: open Device Manager > right click on your Proxmark3 com port > Properties > Port configuration > Advanced > select COM5 as port.</p>
+		<p>If you are switching between the official repository and the RRG repository or you don’t know what firmware is running on your Proxmark3, flash the bootloader first followed by the fullimage. Otherwise, you can flash all at once.</p>
+		<p>Now your Proxmark3 should be updated, if there are any errors during the updating look at the <a href="#issues">Known issues</a>.</p>
+		<p>To start the Proxmark3 client run <cite>Go.bat</cite> or <cite>pm3.bat</cite>, depending on your chosen build. Congratulation you now have a running Proxmark3. Now is a great time to have a look at the <a href="https://github.com/Proxmark/proxmark3/wiki">Proxmark Wiki</a> for what to do next.</p>
+
+    </section>	
+
+    <section id="differences">
+
+        <h1><a href="#differences">Differences</a><small><a href="#html">Back to Top</a></small></h1>
+		
+		<p>There are currently builds for two different Proxmark3 repositories. The <a href=" https://github.com/Proxmark/proxmark3/">official Proxmark repository</a> and the <a href="https://github.com/RfidResearchGroup/proxmark3">RRG / Iceman repository</a>, with the latter having multiple configurations.</p>
+		
+		<h2>Official</h2>
+        <p>This is the most stable firmware for your Proxmark3. It does work on all Proxmark3 devices and is a great starting point, but might lack some features.</p>
+		
+		<h2>RRG / Iceman</h2>
+        <p>The RRG / Iceman repository is bleeding edge with many new features, but it might not be the most stable. It is designed to take advantage of the Proxmark3 RDV4 hardware, but non RDV4 devices are also supported, at least with a limited feature set. This firmware requires 512KB of memory, if your Proxmark3 has less than that and you still want to use it, follow <a href="https://github.com/RfidResearchGroup/proxmark3/blob/master/doc/md/Use_of_Proxmark/4_Advanced-compilation-parameters.md#256kb-versions">256kb versions</a>.</p>
+		<ul>
+			There are 3 different configurations of this firmware:
+            <li>for Proxmark3 RDV4</li>
+			<li>for Proxmark3 RDV4 with blueshark addon</li>
+			<li>for Proxmark3 devices (non RDV4), for Proxmark3 Easy, RDV1, RDV2, RDV3, etc etc</li>
+        </ul>
+
+    </section>	
+
+    <section id="faq">
+
+        <h1><a href="#faq">Frequently Asked Questions</a><small><a href="#html">Back to Top</a></small></h1>
+		
+        <h3>1. What build should I download?</h3>
+        <p>Please refer to the <a href="#differences">Differences</a> section.</p>
+		
+		<h3>2. What is my COM Port?</h3>
+        <p>Open the Device Manager on your PC and go to the Ports section. You should see COMX, where X is the port number. Make sure this port is your Proxmark3 by unplugging your Proxmark3 from your PC, now the port should be gone.</p>
+		
+		<h3>3. Does a GUI exist?</h3>
+        <p>There were community efforts to creating a GUI, but no available GUI does support all features of the Proxmark3 client.</p>
+		
+		<h3>4. Are these binaries safe?</h3>
+        <p>All binaries are created using <a href="https://github.com/Gator96100/ProxSpace">ProxSpace</a> and the corresponding Proxmark repository. If you don’t trust the binaries and want to compile the Proxmark firmware yourself look at the <a href=" https://github.com/Proxmark/proxmark3">Proxmark repository</a> for more information.</p>
+
+		<h3>5. Why does this exist?</h3>
+        <p>Many users have no interest in compiling the Proxmark firmware themselves, especially when they only want to use their proxmark3 without modifying the source code.</p>
+    </section>	
+
+    <section id="issues">
+
+        <h1><a href="#issues">Know issues</a><small><a href="#html">Back to Top</a></small></h1>	
+
+        <h3>1. No COM port is showing up when I plug in my Proxmark</h3>
+		<ul>
+			Make sure you read the Find your COM port part in the <a href="#gettingstarted">Getting Started</a> section first. If your Proxmark3 did loose its COM port during flashing you can try this method:
+            <li style="margin-left: 40px">1. Disconnect your Proxmark3</li>
+            <li style="margin-left: 40px">2. Hold down the button on your Proxmark3 and connect it to your PC</li>
+            <li style="margin-left: 40px">3. Continue to hold the button and run <cite>FLASH - Bootrom.bat</cite> or <cite>pm3-flash-bootrom.bat</cite></li>
+            <li style="margin-left: 40px">4. After successful flashing your Proxmark3 should now have a COM port, run <cite>FLASH - fullimage.bat</cite> or <cite>pm3-flash-fullimage.bat</cite></li>
+        </ul>
+		
+		<h3>2. Note: Your bootloader does not understand the new CMD_BL_VERSION command</h3>
+        <p>This usually does happen when switching between the official repository and the RRG repository, it is nothing to worry about. Run <cite>FLASH - Bootrom.bat</cite> or <cite>pm3-flash-bootrom.bat</cite> first and then <cite>FLASH - fullimage.bat</cite> or <cite>pm3-flash-fullimage.bat</cite></p>
+		
+		<h3>3. Error: PHDR is not contained in Flash</h3>
+        <p>Your Proxmark has only 256KB of flash and the firmware you are trying to flash exceeds this size. You need do disable some features and compile the firmware yourself. See <a href="https://github.com/RfidResearchGroup/proxmark3/blob/master/doc/md/Use_of_Proxmark/4_Advanced-compilation-parameters.md#256kb-versions">256kb versions</a>.</p>
+
+		<h3>4. Unknown USB Device/Device Descriptor Request failed.</h3>
+        <p>This usually happens when trying to flash the RDV4 firmware on a Proxmark3 that is not a RDV4.</p>
+		
+		<h3>5. Stuck at: Waiting for Proxmark3 to appear..., although a COM port is present</h3>
+        <p>When coming from an unknown firmware you might need to force the COM port, open <cite>pm3-flash-bootrom.bat</cite> and <cite>pm3-flash-fullimage.bat</cite> in the editor. Add to the line that contains the <cite>bash</cite> command the <cite>-p COMX</cite> parameter, COMX needs to be replaced with your COM port. Additional information is found in the <cite>pm3*.bat</cite> files.</p>
+
+    </section>	
+
+    <section id="report">
+
+        <h1><a href="#report">Report an error</a><small><a href="#html">Back to Top</a></small></h1>
+		
+		<blockquote>Please note that <cite>It does not work</cite> is not a valid error to report.</blockquote>
+		
+        <p>If you ran into an error during the usage of a precompiled build please <a href="#contact">contact me</a> with following information:</p>
+        <ul>
+            <li>1. The error and how to reproduce it.</li>
+			<li>2. The precompiled build used. Ex.&#160; official-64-20180731-ab20cc35b7cef4e69a4e74f2b59d9e9b7fe2d022</li>
+			<li>3. The output of “hw ver” if possible.</li>
+			<li>4. Your hardware used (What Proxmark3, CPU, etc.).</li>
+			<li>5. Your Windows version. Ex. Windows 7 Ultimate x64.</li>
+        </ul>
+
+    </section>
+
+    <section id="contact">
+
+        <h1><a href="#contact">Contact</a><small><a href="#html">Back to Top</a></small></h1>
+        
+        <p>Please use the <a href="http://proxmark.org/forum/viewtopic.php?id=3975">forum thread</a>.</p>
+        <p>The <a href="https://discord.gg/rm8pVNer7c">RFID HACKING BY ICEMAN</a> Discord server.</p> 
+		<p>Or contact me through Discord: Gator96100#2719</p> 
+
+    </section>
+
+    <section id="Credits">
+        <footer>
+            <a href="https://www.proxmarkbuilds.org">Proxmarkbuilds</a>, a <a href="https://themebeans.com" target="blank">ThemeBeans</a> theme developed by <a href="http://richtabor.com" target="blank">Rich Tabor</a>
+        </footer>
+    </section>
+
+</body>
+</html>
