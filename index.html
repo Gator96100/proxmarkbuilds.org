@@ -380,7 +380,7 @@
         <p>This usually happens when trying to flash the RDV4 firmware on a Proxmark3 that is not a RDV4.</p>
 		
 		<h3>5. Stuck at: Waiting for Proxmark3 to appear..., although a COM port is present</h3>
-        <p>When coming from an unknown firmware you might need to force the COM port, open <cite>pm3-flash-bootrom.bat</cite> and <cite>pm3-flash-fullimage.bat</cite> in the editor. Add to the line that contains the <cite>bash</cite> command the <cite>-p COMX</cite> parameter, COMX needs to be replaced with your COM port. Additional information is found in the <cite>pm3*.bat</cite> files.</p>
+        <p>When coming from an unknown firmware you might need to force the COM port, open <cite>pm3-flash-bootrom.bat</cite> and <cite>pm3-flash-fullimage.bat</cite> in the editor. Change the line that contains the <cite>bash</cite> command to <cite>bash pm3-flash-bootrom COM3</cite> and <cite>bash pm3-flash-fullimage COM3</cite>, COM3 needs to be replaced with your acctual COM port. Additional information is found in the <cite>pm3*.bat</cite> files.</p>
 
     </section>	
 
